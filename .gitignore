@@ -1,0 +1,36 @@
+# Build output
+dist/
+.slidev/
+
+# Dependencies
+node_modules/
+
+# Lock files (optional, some prefer to commit these)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# PDF exports
+*.pdf
+slides-export.pdf
