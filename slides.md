@@ -116,25 +116,28 @@ def preprocess_text(text):
 ```
 
 ---
+layout: two-cols
+---
 
 # Distribusi Data
 
 <v-clicks>
 
-- **Ham**: ~4,500 pesan (87%)
-- **Spam**: ~700 pesan (13%)
-- Dataset **tidak seimbang** (imbalanced)
+- Ham: ~4,500 pesan (87%)
+- Spam: ~700 pesan (13%)
+- Dataset tidak seimbang (imbalanced)
 - Perlu perhatian khusus pada metrik evaluasi
 
 </v-clicks>
 
-<div class="mt-8 text-center" v-click>
-  <div class="bg-blue-100 inline-block p-4 rounded">
-    <div class="text-2xl font-bold">Ham: 4,516</div>
-    <div class="text-2xl font-bold">Spam: 747</div>
-  </div>
+::right::
+
+<div class="flex items-center justify-center h-full">
+  <img src="/1.png" class="w-11/12" />
 </div>
 
+---
+layout: two-cols
 ---
 
 # Analisis Panjang Pesan
@@ -142,25 +145,16 @@ def preprocess_text(text):
 <v-clicks>
 
 ## Temuan Menarik:
-- **Ham**: Mayoritas pendek (< 100 karakter)
-- **Spam**: Cenderung lebih panjang
+- Ham: Mayoritas pendek (< 100 karakter)
+- Spam: Cenderung lebih panjang
 - Panjang pesan bisa jadi fitur pembeda
 
 </v-clicks>
 
-<div class="mt-8" v-click>
-  <div class="grid grid-cols-2 gap-4">
-    <div class="bg-blue-50 p-4 rounded">
-      <h3 class="font-bold">Ham Messages</h3>
-      <p>Avg length: ~50 chars</p>
-      <p>Peak: 0-50 chars</p>
-    </div>
-    <div class="bg-orange-50 p-4 rounded">
-      <h3 class="font-bold">Spam Messages</h3>
-      <p>Avg length: ~130 chars</p>
-      <p>More distributed</p>
-    </div>
-  </div>
+::right::
+
+<div class="flex items-center justify-center h-full">
+  <img src="/2.png" class="w-11/12" />
 </div>
 
 ---
@@ -206,6 +200,8 @@ svm.fit(X_train, y_train)
 </v-clicks>
 
 ---
+layout: two-cols
+---
 
 # Hasil Evaluasi
 
@@ -217,79 +213,55 @@ svm.fit(X_train, y_train)
 - **Recall**: 87%
 - **F1-Score**: 92%
 
+## Confusion Matrix Details
+- True Positive: 125
+- True Negative: 889
+- False Positive: 3
+- False Negative: 18
+
 </v-clicks>
 
-<div class="mt-8" v-click>
+::right::
 
-## Confusion Matrix
-
-<table class="mx-auto">
-  <tr>
-    <td></td>
-    <td class="font-bold">Pred Ham</td>
-    <td class="font-bold">Pred Spam</td>
-  </tr>
-  <tr>
-    <td class="font-bold">True Ham</td>
-    <td class="bg-blue-100 text-center p-4">889</td>
-    <td class="bg-blue-50 text-center p-4">3</td>
-  </tr>
-  <tr>
-    <td class="font-bold">True Spam</td>
-    <td class="bg-orange-50 text-center p-4">18</td>
-    <td class="bg-orange-100 text-center p-4">125</td>
-  </tr>
-</table>
-
+<div class="flex items-center justify-center h-full">
+  <img src="/3.png" class="w-11/12" />
 </div>
 
+---
+layout: two-cols
 ---
 
 # Word Cloud Analysis
 
-<div class="grid grid-cols-2 gap-8 mt-8">
-  <div>
-    <h3 class="text-center font-bold mb-4">Ham Messages</h3>
-    <div class="bg-blue-50 p-8 rounded text-center">
-      <div class="text-3xl">📱</div>
-      <p class="mt-4">Key words: come, time, got, need, know, want, call, get</p>
-    </div>
-  </div>
-  <div>
-    <h3 class="text-center font-bold mb-4">Spam Messages</h3>
-    <div class="bg-orange-50 p-8 rounded text-center">
-      <div class="text-3xl">💰</div>
-      <p class="mt-4">Key words: free, text, claim, call, prize, win, mobile</p>
-    </div>
-  </div>
+<div class="mt-8 flex justify-center">
+  <img src="/4.png" class="w-full" />
 </div>
+<p class="text-center text-sm mt-4">Ham Messages</p>
 
+::right::
+
+<div class="mt-8 flex justify-center">
+  <img src="/5.png" class="w-full" />
+</div>
+<p class="text-center text-sm mt-4">Spam Messages</p>
+
+---
+layout: two-cols
 ---
 
 # Feature Importance
 
-<div class="grid grid-cols-2 gap-8 mt-8">
-  <div>
-    <h3 class="font-bold mb-4">Top Ham Words</h3>
-    <ul class="space-y-2">
-      <li class="bg-blue-50 p-2 rounded">liked</li>
-      <li class="bg-blue-50 p-2 rounded">ltgt</li>
-      <li class="bg-blue-50 p-2 rounded">gonna</li>
-      <li class="bg-blue-50 p-2 rounded">thought</li>
-      <li class="bg-blue-50 p-2 rounded">ask</li>
-    </ul>
-  </div>
-  <div>
-    <h3 class="font-bold mb-4">Top Spam Words</h3>
-    <ul class="space-y-2">
-      <li class="bg-orange-50 p-2 rounded">claim</li>
-      <li class="bg-orange-50 p-2 rounded">wining</li>
-      <li class="bg-orange-50 p-2 rounded">voicemail</li>
-      <li class="bg-orange-50 p-2 rounded">tfp</li>
-      <li class="bg-orange-50 p-2 rounded">ringtoneking</li>
-    </ul>
-  </div>
+<div class="mt-8 flex justify-center">
+  <img src="/6.png" class="w-full" />
 </div>
+<p class="text-center text-sm mt-4">Top Ham Words</p>
+
+::right::
+
+<div class="mt-8 flex justify-center">
+  <img src="/7.png" class="w-full" />
+</div>
+<p class="text-center text-sm mt-4">Top Spam Words</p>
 
 ---
 
@@ -337,6 +309,10 @@ class: text-center
 
 # Terima Kasih
 
-<div class="text-2xl">
+<div class="text-2xl mt-8">
   🤖 Spam Detection with SVM 📧
+</div>
+
+<div class="text-lg mt-12 text-gray-600">
+  Text Mining Project - 2025
 </div>
